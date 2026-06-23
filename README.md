@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+דף נחיתה עם טופס צור קשר 📬
 
-## Getting Started
+על הפרויקט
+בניתי דף נחיתה פשוט וממוקד שמטרתו לאפשר למשתמשים ליצור קשר בקלות.
+הדף כולל טופס שבו המשתמש ממלא את הפרטים שלו, ובעת שליחה הנתונים נשמרים
+אוטומטית בטבלת Airtable – כך שניתן לעקוב אחרי כל הפניות במקום אחד מסודר.
 
-First, run the development server:
+מה השתמשתי?
+Next.js – פריימוורק לבניית אתרים מבוסס React. בחרתי בו כי הוא מאפשר
+לבנות גם את הצד הויזואלי וגם את הלוגיקה של השרת באותו פרויקט.
 
-```bash
+React – ספריית JavaScript לבניית ממשקי משתמש אינטראקטיביים.
+
+TypeScript – גרסה משופרת של JavaScript שעוזרת לתפוס שגיאות מוקדם.
+
+TailwindCSS – כלי עיצוב שמאפשר לעצב ישירות בתוך הקוד בצורה מהירה ונוחה.
+
+Airtable API – חיברתי את הטופס ל-Airtable כדי שכל פנייה תישמר אוטומטית בטבלה.
+
+מה הטופס כולל?
+שם מלא, אימייל, טלפון (כולל בדיקה שהמספר תקין), והודעה חופשית.
+אם השליחה הצליחה – מופיעה הודעת אישור ירוקה. אם נכשלה – מופיעה הודעת שגיאה.
+
+איך מריצים את הפרויקט?
+קודם כל צריך להתקין Node.js במחשב (גרסה 18 ומעלה).
+
+אחרי זה:
+
+1. שכפל את הפרויקט:
+git clone https://github.com/noyshushan653/landing-page.git
+cd landing-page
+
+2. התקן את החבילות הנדרשות:
+npm install
+
+3. צור קובץ בשם .env.local בתיקיה הראשית והכנס לתוכו:
+AIRTABLE_TOKEN=your_token_here
+AIRTABLE_BASE_ID=your_base_id_here
+AIRTABLE_TABLE_ID=your_table_id_here
+
+4. הרץ את הפרויקט:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. פתח בדפדפן:
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+מבנה הפרויקט
+app/page.tsx – כאן נמצא דף הנחיתה עם הטופס המלא.
+app/api/submit/route.ts – זה הקובץ שאחראי על קבלת הנתונים מהטופס ושליחתם ל-Airtable.
+.env.local – קובץ סודי שמכיל את המפתחות לחיבור ל-Airtable. הקובץ הזה לא מועלה ל-GitHub מטעמי אבטחה.
